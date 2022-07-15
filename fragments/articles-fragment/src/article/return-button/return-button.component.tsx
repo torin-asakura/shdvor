@@ -1,46 +1,29 @@
-import React            from 'react'
-import { FC }           from 'react'
-import { useState }     from 'react'
+import React                 from 'react'
+import { FC }                from 'react'
 
-import { ALL_ARTICLES } from '@store/articles'
-import { Button }       from '@ui/button'
-import { BackIcon }     from '@ui/icons'
-import { Box }          from '@ui/layout'
-import { Layout }       from '@ui/layout'
-import { Text }         from '@ui/text'
-import { screenVar }    from '@store/articles'
+import { ALL_ARTICLES }      from '@store/articles'
+import { Button }            from '@ui/button'
+import { BackIcon }          from '@ui/icons'
+import { Box }               from '@ui/layout'
+import { Layout }            from '@ui/layout'
+import { Text }              from '@ui/text'
+import { screenVar }         from '@store/articles'
+import { useHover }          from '@ui/utils'
 
-const ReturnButton: FC = () => {
-  const [onHover, setOnHover] = useState(false)
-  const [, setOnPressed] = useState(false)
-  const doReturn = () => {
-    setOnPressed(true)
-    screenVar(ALL_ARTICLES)
-  }
-  const getColor = () => {
-    let color = 'lightGray'
-    if (onHover) {
-      color = 'white'
-    }
-    return color
-  }
+import { ReturnButtonProps } from './return-button.interface'
+
+const ReturnButton: FC<ReturnButtonProps> = ({ title }) => {
+  const [hover, hoverProps] = useHover()
+
   return (
-    <Button
-      color='transparent'
-      size='ghost'
-      onClick={() => doReturn()}
-      onMouseOver={() => setOnHover(true)}
-      onMouseLeave={() => setOnHover(false)}
-    >
+    <Button color='grey' size='ghost' onClick={() => screenVar(ALL_ARTICLES)} {...hoverProps}>
       <Box width={102} alignItems='center'>
         <Layout>
-          <BackIcon width={12} height={24} color={getColor()} />
+          <BackIcon width={12} height={24} color={hover ? 'white' : 'charcoal'} />
         </Layout>
         <Layout flexBasis={8} />
         <Layout>
-          <Text fontWeight='medium' color={getColor()}>
-            Button
-          </Text>
+          <Text fontWeight='medium'>{title}</Text>
         </Layout>
       </Box>
     </Button>

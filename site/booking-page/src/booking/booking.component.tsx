@@ -43,19 +43,25 @@ const Booking: FC = () => {
       </Layout>
       <Layout flexBasis={32} />
       <Layout>
-        <Text color='darkGray'>Text</Text>
+        <Text lineHeight='grown' color='darkGray'>
+          Text
+        </Text>
       </Layout>
       <Layout flexBasis={16} />
       <RadioList items={availableRadii} width={['18%', '8%', '8%']} id='radius' />
       <Layout flexBasis={20} />
       <Layout>
-        <Text color='darkGray'>Text</Text>
+        <Text lineHeight='grown' color='darkGray'>
+          Text
+        </Text>
       </Layout>
       <Layout flexBasis={16} />
       <RadioList items={carBodyList} width={161} id='carBody' />
       <Layout flexBasis={20} />
       <Layout>
-        <Text color='darkGray'>Text</Text>
+        <Text lineHeight='grown' color='darkGray'>
+          Text
+        </Text>
       </Layout>
       <Layout flexBasis={12} />
       <Select
@@ -65,10 +71,12 @@ const Booking: FC = () => {
         onSelect={setSelectedItem}
       />
       <Layout flexBasis={12} />
-      <Divider color={selectedItem.length ? 'primaryBlue' : 'gray'} />
+      <Divider backgroundColor={selectedItem.length ? 'primaryBlue' : 'gray'} />
       <Layout flexBasis={32} />
       <Layout>
-        <Text color='darkGray'>Text</Text>
+        <Text lineHeight='grown' color='darkGray'>
+          Text
+        </Text>
       </Layout>
       <Layout flexBasis={12} />
       <Layout>

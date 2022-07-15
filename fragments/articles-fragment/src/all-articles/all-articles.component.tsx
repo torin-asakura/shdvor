@@ -1,46 +1,72 @@
-import React                 from 'react'
-import { FC }                from 'react'
+import React               from 'react'
+import { FC }              from 'react'
 
-import { ARTICLE }           from '@store/articles'
-import { ImageBlock }        from '@ui/image'
-import { Box }               from '@ui/layout'
-import { Row }               from '@ui/layout'
-import { Column }            from '@ui/layout'
-import { Layout }            from '@ui/layout'
-import { Text }              from '@ui/text'
-import { screenVar }         from '@store/articles'
+import { ARTICLE }         from '@store/articles'
+import { ImageBlock }      from '@ui/image'
+import { Box }             from '@ui/layout'
+import { Row }             from '@ui/layout'
+import { Column }          from '@ui/layout'
+import { Layout }          from '@ui/layout'
+import { Text }            from '@ui/text'
+import { useData }         from '@globals/data'
+import { extractor }       from '@globals/data'
+import { normalizeString } from '@shared/utils'
+import { formattedDate }   from '@shared/utils'
+import { screenVar }       from '@store/articles'
+import { postIdVar }       from '@store/articles'
 
-import { useMockedArticles } from '../data'
+import { usePosts }        from '../data'
 
 const AllArticles: FC = () => {
-  const { articles } = useMockedArticles()
+  const { posts } = usePosts()
+  const { fragments } = useData()
+
+  let titlePage = ''
+
+  if (fragments) {
+    titlePage = extractor(fragments?.blog?.Blog, 'title', 'blog')
+  }
 
   return (
-    <Box maxWidth={['100%', '100%', '1440px']}>
-      <Layout flexBasis={[20, 20, 80]} />
-      <Column width='100%'>
-        <Layout flexBasis={[20, 20, 32]} />
+    <Box maxWidth={['100%', '100%', '1440px']} height='auto'>
+      <Layout flexBasis={[20, 20, 80]} flexShrink={0} />
+      <Column width='100%' height='auto'>
+        <Layout flexBasis={[20, 20, 32]} flexShrink={0} />
         <Layout>
-          <Text fontSize='extra'>Text</Text>
+          <Text fontWeight='bold' fontSize='extra'>
+            {titlePage}
+          </Text>
         </Layout>
         <Row justifyContent='space-between' flexWrap='wrap'>
-          {articles.map(({ id, name }) => (
-            <Box key={id} width={['100%', '100%', 405]} onClick={() => screenVar(ARTICLE)}>
+          {posts.map(({ id, title, date, excerpt, featuredImage }) => (
+            <Box
+              key={id}
+              width={['100%', '100%', 405]}
+              onClick={() => {
+                postIdVar(id)
+                screenVar(ARTICLE)
+              }}
+              // @ts-ignore
+              cursor='pointer'
+            >
               <Column width='100%'>
                 <Layout flexBasis={[32, 32, 48]} />
                 <Box width='100%' height={[224, 224, 260]}>
-                  <ImageBlock />
+                  <ImageBlock
+                    src={featuredImage.node.mediaItemUrl}
+                    alt={featuredImage.node.altText}
+                  />
                 </Box>
                 <Layout flexBasis={24} />
                 <Layout>
                   <Text fontSise='large' lineHeight='grown'>
-                    {name}
+                    {formattedDate(date)}
                   </Text>
                 </Layout>
                 <Layout flexBasis={8} />
                 <Layout>
                   <Text lineHeight='grown' fontWeight='medium' fontSize='large'>
-                    Heading
+                    {title}
                   </Text>
                 </Layout>
                 <Layout flexBasis={8} />
@@ -51,16 +77,16 @@ const AllArticles: FC = () => {
                     text-overflow='ellipsis'
                     lineHeight='medium'
                   >
-                    Text ...
+                    {normalizeString(excerpt)}
                   </Text>
                 </Box>
               </Column>
             </Box>
           ))}
         </Row>
-        <Layout flexBasis={[20, 20, 32]} />
+        <Layout flexBasis={[20, 20, 80]} flexShrink={0} />
       </Column>
-      <Layout flexBasis={[20, 20, 80]} />
+      <Layout flexBasis={[20, 20, 80]} flexShrink={0} />
     </Box>
   )
 }
