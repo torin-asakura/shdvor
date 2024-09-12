@@ -15168,6 +15168,9 @@ __metadata:
     "@types/webpack": "npm:5.28.5"
     prettier: "npm:3.3.3"
     typescript: "npm:5.4.2"
+  dependenciesMeta:
+    sharp@0.33.5:
+      unplugged: true
   languageName: unknown
   linkType: soft
 
