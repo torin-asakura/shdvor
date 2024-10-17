@@ -9,6 +9,6 @@ export class StartCommand {
   constructor(private readonly telegramClient: TelegramClientPort) {}
 
   async execute(ctx: TelegramBotFormattedContextType): Promise<void> {
-    await this.telegramClient.sendMessage(ctx, 'welcome message')
+    await this.telegramClient.sendMessage(ctx, this.telegramClient.ruLocale.welcomeMessage)
   }
 }
