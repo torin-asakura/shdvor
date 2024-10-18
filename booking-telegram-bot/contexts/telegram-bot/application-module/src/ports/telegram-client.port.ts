@@ -2,6 +2,8 @@ import type { CreateConversationReturnType }    from '@telegram-bot/application-
 import type { TelegramBotFormattedContextType } from '@telegram-bot/application-module'
 
 export abstract class TelegramClientPort {
+  abstract get ruLocale(): Record<string, string>
+
   abstract sendMessage(ctx: TelegramBotFormattedContextType, text: string): Promise<void>
 
   abstract sendMessageWithMarkup(
@@ -9,6 +11,8 @@ export abstract class TelegramClientPort {
     text: string,
     buttonsText: Array<string>
   ): Promise<void>
+
+  abstract replyMessage(ctx: TelegramBotFormattedContextType, text: string): Promise<void>
 
   abstract createConversation(ctx: TelegramBotFormattedContextType): CreateConversationReturnType
 
