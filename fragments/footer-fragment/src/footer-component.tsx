@@ -82,12 +82,15 @@ export const Footer: FC<FooterProps> = memo(({
               <SocialLinks linkTelegram={linkTelegram} linkVk={linkVk} />
             </Row>
             <Column width='100%' paddingY='$g24' gap='$g20' display={['flex', 'flex', 'none']}>
-              {navigationItems.map(({
-                contentAddons: { title, content },
-              }: {
-                contentAddons: { title: string; content: string }
-              }) => (
-                <Box>
+              {navigationItems.map((
+                {
+                  contentAddons: { title, content },
+                }: {
+                  contentAddons: { title: string; content: string }
+                },
+                index: number
+              ) => (
+                <Box key={`${index}`}>
                   <NextNavLink key={title} path={content}>
                     <Text fontWeight='$medium'>{title}</Text>
                   </NextNavLink>
