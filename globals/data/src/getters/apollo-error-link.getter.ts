@@ -8,9 +8,14 @@ export const getApolloErrorLink = (): ApolloLink => {
     const extendedErrorResponse = errorResponse as unknown as {
       graphQLErrors: Array<GraphQLFormattedError & { debugMessage: string }>
       cause?: Record<string, any>
+      operation?: Record<string, any>
     }
-    const { graphQLErrors, cause } = extendedErrorResponse
+    const { graphQLErrors, cause, operation } = extendedErrorResponse
 
+    if (operation) {
+      console.debug('OperationVariables:', operation.variables)
+      console.debug('OperationQuery:', operation.query)
+    }
     if (graphQLErrors) {
       graphQLErrors.forEach(({ debugMessage, message, locations, path, extensions }) => {
         console.debug(`DebugMessage: ${debugMessage}`)
