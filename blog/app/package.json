@@ -8,11 +8,11 @@
   },
   "main": "src/index.ts",
   "scripts": {
-    "build": "yarn next build src --no-lint && cp -r ./src/.next/standalone ./dist && cp -r ./src/.next/static ./dist/.next && mv ./dist/server.js ./dist/index.cjs",
+    "build": "yarn next build src --no-lint && rm ./src/.next/standalone/package.json ; cp -r ./src/.next/standalone ./dist && cp -r ./src/.next/static ./dist/src/.next/static && mv ./dist/src/server.js ./dist/src/index.cjs",
     "cleanup": "rm -rf dist",
     "dev": "yarn next dev src",
     "prepack": "run build",
-    "start": "node dist/index.cjs"
+    "start": "node dist/src/index.cjs"
   },
   "dependencies": {
     "@apollo/client": "3.11.3",
@@ -43,7 +43,7 @@
     "@types/react-helmet": "6.1.11",
     "@types/styled-system": "^5",
     "@vanilla-extract/css": "1.16.1",
-    "@vanilla-extract/next-plugin": "2.4.8",
+    "@vanilla-extract/next-plugin": "2.4.7",
     "typescript": "5.4.2"
   }
 }

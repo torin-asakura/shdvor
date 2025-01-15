@@ -2732,7 +2732,7 @@ __metadata:
     "@types/react-helmet": "npm:6.1.11"
     "@types/styled-system": "npm:^5"
     "@vanilla-extract/css": "npm:1.16.1"
-    "@vanilla-extract/next-plugin": "npm:2.4.8"
+    "@vanilla-extract/next-plugin": "npm:2.4.7"
     graphql: "npm:16.9.0"
     next: "npm:15.1.4"
     rainbow-sprinkles: "npm:0.17.3"
@@ -10188,7 +10188,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vanilla-extract/next-plugin@npm:*, @vanilla-extract/next-plugin@npm:2.4.8":
+"@vanilla-extract/next-plugin@npm:*":
   version: 2.4.8
   resolution: "@vanilla-extract/next-plugin@npm:2.4.8"
   dependencies:
