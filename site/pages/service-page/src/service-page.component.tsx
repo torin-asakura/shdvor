@@ -10,7 +10,7 @@ import { runServicePageServerQueries } from './hooks/index.js'
 
 const ServicePage: ServicePageProps = async ({ params }) => {
   const { servicesDataToReplace } = await runServicePageServerQueries({ params })
-  const { uri } = await params
+  const { uri } = params
   return (
     <PreloadQuery
       query={GET_SERVICE_BY}
@@ -18,7 +18,7 @@ const ServicePage: ServicePageProps = async ({ params }) => {
         uri,
       }}
     >
-      <ServicePageClient params={await params} servicesDataToReplace={servicesDataToReplace} />
+      <ServicePageClient params={params} servicesDataToReplace={servicesDataToReplace} />
     </PreloadQuery>
   )
 }

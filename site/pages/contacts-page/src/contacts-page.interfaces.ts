@@ -11,7 +11,7 @@ export interface ContactsPageClientProps {
 }
 
 export interface ContactsPageProps {
-  searchParams: Promise<Record<string, string | Array<string> | undefined>>
+  searchParams: Record<string, string | Array<string> | undefined>
 }
 
 export type ContactsPageInt = () => Promise<JSX.Element>

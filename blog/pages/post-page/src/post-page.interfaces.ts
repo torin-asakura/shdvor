@@ -9,15 +9,16 @@ export interface PostPageClientProps {
   }
 }
 
-type ParamsType = Promise<{
+type ParamsType = {
   uri: string
-}>
+}
+
 export interface SeoProps {
   ogCover: string
   SEO: SEOInt
 }
 
-export type PostPageProps = (props: { params: ParamsType }) => Promise<JSX.Element>
+export type PostPageProps = ({ params }: { params: ParamsType }) => Promise<JSX.Element>
 
 export type PostPageServerProps = ({
   params,
