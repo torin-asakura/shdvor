@@ -16,7 +16,7 @@ import { getServerClient }                from '@globals/data/apollo'
 export const runServicePageServerQueries = async ({
   params,
 }: PropsType): Promise<{ servicesDataToReplace: ServicesDataToReplaceType }> => {
-  const { uri } = params
+  const { uri } = await params
   const client = getServerClient()
 
   await Promise.allSettled([

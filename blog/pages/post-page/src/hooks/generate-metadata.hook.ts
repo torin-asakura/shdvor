@@ -5,8 +5,8 @@ import { GET_PREVIEW }     from '@globals/data'
 import { getSeoMetadata }  from '@globals/data'
 import { getServerClient } from '@globals/data/apollo'
 
-const generateMetadata = async ({ params }: { params: { uri: string } }) => {
-  const { uri } = params
+const generateMetadata = async ({ params }: { params: Promise<{ uri: string }> }) => {
+  const { uri } = await params
   const client = getServerClient()
 
   const {

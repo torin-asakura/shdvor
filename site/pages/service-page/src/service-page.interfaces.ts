@@ -5,7 +5,7 @@ export type ParamsType = {
 }
 
 export type PropsType = {
-  params: ParamsType
+  params: Promise<ParamsType>
 }
 
 export interface ServicePageClientProps {
@@ -13,7 +13,7 @@ export interface ServicePageClientProps {
   servicesDataToReplace: ServicesDataToReplaceType
 }
 
-export type ServicePageProps = ({ params }: { params: ParamsType }) => Promise<JSX.Element>
+export type ServicePageProps = (props: { params: Promise<ParamsType> }) => Promise<JSX.Element>
 
 export type ServicePageServerProps = ({
   params,

@@ -10,7 +10,7 @@ export interface SeoProps {
 }
 
 export interface IndexPageProps {
-  searchParams: Record<string, string | Array<string> | undefined>
+  searchParams: Promise<Record<string, string | Array<string> | undefined>>
 }
 
 export interface IndexPageClientProps {

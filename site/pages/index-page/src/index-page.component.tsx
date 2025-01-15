@@ -9,7 +9,7 @@ import { IndexPageClient }           from './index-page.client.js'
 import { runIndexPageServerQueries } from './hooks/run-index-page-server-queries.hook.js'
 
 const IndexPage: FC<IndexPageProps> = async ({ searchParams }) => {
-  const isYandexTurbo = Boolean(searchParams['yandex-turbo'])
+  const isYandexTurbo = Boolean((await searchParams)['yandex-turbo'])
   const { servicesDataToReplace } = await runIndexPageServerQueries()
   return (
     // @ts-expect-error not assignable

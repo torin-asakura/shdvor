@@ -12,7 +12,7 @@ import { getServerClient }          from '@globals/data/apollo'
 // @ts-expect-error notAssignable
 export const runPostPageServerQuerires: PostPageServerProps = async ({ params }) => {
   const client = getServerClient()
-  const { uri } = params
+  const { uri } = await params
 
   await client.query({ query: GET_FRAGMENTS })
   await client.query({ query: GET_CONTACTS })

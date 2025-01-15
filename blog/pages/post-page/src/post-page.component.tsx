@@ -8,9 +8,10 @@ import { PreloadQuery }              from '@globals/data/apollo'
 import { PostPageClient }            from './post-page.client.js'
 import { runPostPageServerQuerires } from './hooks/index.js'
 
-const PostPage: PostPageProps = async ({ params }) => {
+const PostPage: PostPageProps = async (props: { params: Promise<{ uri: string }> }) => {
+  const { params } = props
   await runPostPageServerQuerires({ params })
-  const { uri } = params
+  const { uri } = await params
   return (
     <PreloadQuery
       query={GET_BLOG_POST}
@@ -18,7 +19,7 @@ const PostPage: PostPageProps = async ({ params }) => {
         uri,
       }}
     >
-      <PostPageClient params={params} />
+      <PostPageClient params={await params} />
     </PreloadQuery>
   )
 }

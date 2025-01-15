@@ -23,10 +23,10 @@ const nextConfig: NextConfig = {
     ],
   },
 
+  outputFileTracingRoot: join(dirnamePath, './'),
+
   experimental: {
-    instrumentationHook: true,
     externalDir: true,
-    outputFileTracingRoot: join(dirnamePath, './'),
     esmExternals: 'loose',
   },
   compiler: {

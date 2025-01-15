@@ -8,7 +8,7 @@ import { ContactsPageClient }           from './contacts-page.client.js'
 import { runContactsPageServerQueries } from './hooks/index.js'
 
 const ContactsPage: FC<ContactsPageProps> = async ({ searchParams }) => {
-  const isYandexTurbo = Boolean(searchParams['yandex-turbo'])
+  const isYandexTurbo = Boolean((await searchParams)['yandex-turbo'])
 
   await runContactsPageServerQueries()
   // @ts-expect-error not assignable
