@@ -35,6 +35,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>((
   return (
     <button
       ref={ref}
+      formAction='/'
       type='button'
       disabled={disabled}
       className={buttonStyles({
