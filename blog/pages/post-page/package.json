@@ -13,6 +13,7 @@
     "@fragments/navigation-fragment": "workspace:*",
     "@globals/config": "workspace:*",
     "@globals/data": "workspace:*",
+    "@shared/not-found-page": "workspace:*",
     "@ui/condition": "workspace:*",
     "@ui/layout": "workspace:*"
   },

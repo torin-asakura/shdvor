@@ -4,13 +4,16 @@ import React                         from 'react'
 
 import { GET_BLOG_POST }             from '@globals/data'
 import { PreloadQuery }              from '@globals/data/apollo'
+import { NotFoundPage }              from '@shared/not-found-page'
 
 import { PostPageClient }            from './post-page.client.js'
 import { runPostPageServerQuerires } from './hooks/index.js'
 
 const PostPage: PostPageProps = async ({ params }) => {
   const serverQueriesResult = await runPostPageServerQuerires({ params })
-  if (!serverQueriesResult) return null
+  if (!serverQueriesResult) {
+    return <NotFoundPage />
+  }
 
   const { uri } = params
 
