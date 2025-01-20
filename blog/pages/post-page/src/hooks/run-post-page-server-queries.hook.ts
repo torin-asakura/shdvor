@@ -19,13 +19,16 @@ export const runPostPageServerQuerires: PostPageServerProps = async ({ params })
   const findedPost = await getBlogPost(client, uri)
 
   if (findedPost) {
-    await client.query({ query: GET_FRAGMENTS })
-    await client.query({ query: GET_CONTACTS })
-    await client.query({ query: GET_NAVIGATION })
-    await client.query({ query: GET_AVAILABLE_RADII })
-    await client.query({ query: GET_BLOG_POST, variables: { uri } })
-    await client.query({ query: GET_CAR_BODIES })
-    await client.query({ query: GET_SERVICES })
+    const promises = [
+      client.query({ query: GET_FRAGMENTS }),
+      client.query({ query: GET_CONTACTS }),
+      client.query({ query: GET_NAVIGATION }),
+      client.query({ query: GET_AVAILABLE_RADII }),
+      client.query({ query: GET_BLOG_POST, variables: { uri } }),
+      client.query({ query: GET_CAR_BODIES }),
+      client.query({ query: GET_SERVICES }),
+    ]
+    await Promise.allSettled(promises)
     return true
   }
 
