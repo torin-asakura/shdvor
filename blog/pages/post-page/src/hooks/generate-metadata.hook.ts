@@ -11,8 +11,8 @@ const generateMetadata = async ({ params }: { params: { uri: string } }) => {
   const { uri } = params
   const client = getServerClient()
 
-  const findedPost = await getBlogPost(client, uri)
-  if (!findedPost) return {}
+  const foundPost = await getBlogPost(client, uri)
+  if (!foundPost) return {}
 
   const {
     data: {
