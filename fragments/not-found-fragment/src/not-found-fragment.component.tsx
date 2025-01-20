@@ -1,7 +1,7 @@
 import type { FC }          from 'react'
 
-import React                from 'react'
 import { FormattedMessage } from 'react-intl'
+import React                from 'react'
 
 import { Box }              from '@ui/layout'
 import { Text }             from '@ui/text'
