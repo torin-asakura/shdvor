@@ -9,8 +9,11 @@ import { PostPageClient }            from './post-page.client.js'
 import { runPostPageServerQuerires } from './hooks/index.js'
 
 const PostPage: PostPageProps = async ({ params }) => {
-  await runPostPageServerQuerires({ params })
+  const serverQueriesResult = await runPostPageServerQuerires({ params })
+  if (!serverQueriesResult) return null
+
   const { uri } = params
+
   return (
     <PreloadQuery
       query={GET_BLOG_POST}

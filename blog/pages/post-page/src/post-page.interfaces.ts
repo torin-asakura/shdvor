@@ -1,7 +1,9 @@
-import type { SEOInt }     from '@globals/data'
-import type { PostByType } from '@globals/data'
+import type { SEOInt }            from '@globals/data'
+import type { PostByType }        from '@globals/data'
+import type { NonNullableObject } from '@globals/data'
+import type { JSX }               from 'react'
 
-export type RequiredPostByType = globals.NonNullableObject<PostByType>
+export type RequiredPostByType = NonNullableObject<PostByType>
 
 export interface PostPageClientProps {
   params: {
@@ -18,7 +20,7 @@ export interface SeoProps {
   SEO: SEOInt
 }
 
-export type PostPageProps = ({ params }: { params: ParamsType }) => Promise<JSX.Element>
+export type PostPageProps = ({ params }: { params: ParamsType }) => Promise<JSX.Element | null>
 
 export type PostPageServerProps = ({
   params,
