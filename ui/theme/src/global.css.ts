@@ -13,6 +13,10 @@ globalStyle('html, body', {
   overflowX: 'hidden',
 })
 
+globalStyle('body', {
+  minHeight: '100vh',
+})
+
 globalStyle('#__next', {
   display: 'flex',
   flexDirection: 'column',
