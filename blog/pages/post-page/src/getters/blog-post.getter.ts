@@ -9,9 +9,8 @@ export const getBlogPost = async (
 ): Promise<object | null | undefined> => {
   const blogPostsQueryResult = await client.query<BlogPostsQueryDataType>({ query: GET_BLOG_POSTS })
   const foundPost = blogPostsQueryResult?.data?.posts?.nodes?.find((postData) => {
-    const postUri = postData?.uri
-    if (postUri) return postUri.split('/').includes(uri)
-    return null
+    const postUri = postData?.uri || ''
+    return postUri.split('/').includes(uri)
   })
 
   return foundPost
