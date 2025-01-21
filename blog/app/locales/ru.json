@@ -1,5 +1,7 @@
 {
-  "not-found": "Страница не найдена",
+  "button.to-home": "На главную",
+  "error.whoops": "Упс!",
+  "error.not-found": "Страница не найдена",
   "article.view": "просмотр",
   "article.views": "просмотров",
   "article.viewed": "просмотра"
