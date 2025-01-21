@@ -15,3 +15,5 @@ export * from './Menu.icon.js'
 export * from './Vk.icon.js'
 export * from './Wheel.icon.js'
 export * from './Telegram.icon.js'
+
+export * from './not-found.icon.js'

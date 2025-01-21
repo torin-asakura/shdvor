@@ -9,6 +9,7 @@
   "main": "src/index.ts",
   "dependencies": {
     "@ui/button": "workspace:*",
+    "@ui/icons": "workspace:*",
     "@ui/layout": "workspace:*",
     "@ui/link": "workspace:*",
     "@ui/text": "workspace:*"

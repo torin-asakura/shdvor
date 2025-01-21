@@ -7432,6 +7432,7 @@ const RAW_RUNTIME_STATE =
           ["@types/react-dom", "npm:18.3.0"],\
           ["@types/react-intl", null],\
           ["@ui/button", "virtual:b4bda316b0967eca050e56d7aa27a306bad01b8e3a3e0223ada0a720d9b0319bbdd00f2b70925fcf8e311981a8305c8b0d3de479fc6832fdb1bf6f603913c8cc#workspace:ui/button"],\
+          ["@ui/icons", "virtual:955952d4d195eca6ed4c4581e97abbc344de4954e0b8c74c6d4e7f6781789bd1da843ba4d1719e3893b5a45fc146e0aa677de731cefc45ec863414bc0626c074#workspace:ui/icons"],\
           ["@ui/layout", "virtual:fa4b14909a2454b8e2cf01845c2ece79a8b49976c6a5b7adcc217781c5337260b8b4afd79b3b6a320a1ed360d82cafa798fce11c9f4af82cee44cd0834c0266b#workspace:ui/layout"],\
           ["@ui/link", "virtual:9770626a25c78de02794fc599207bb6b74fd8296b48491a71389e520380c3c0026e3b3e4f532c1c160b2359304486c4f7a2f572ac8e0e487812430860e8e4e08#workspace:ui/link"],\
           ["@ui/text", "virtual:b4bda316b0967eca050e56d7aa27a306bad01b8e3a3e0223ada0a720d9b0319bbdd00f2b70925fcf8e311981a8305c8b0d3de479fc6832fdb1bf6f603913c8cc#workspace:ui/text"],\
@@ -7455,6 +7456,7 @@ const RAW_RUNTIME_STATE =
           ["@types/react", "npm:18.3.3"],\
           ["@types/react-dom", "npm:18.3.0"],\
           ["@ui/button", "virtual:b4bda316b0967eca050e56d7aa27a306bad01b8e3a3e0223ada0a720d9b0319bbdd00f2b70925fcf8e311981a8305c8b0d3de479fc6832fdb1bf6f603913c8cc#workspace:ui/button"],\
+          ["@ui/icons", "virtual:955952d4d195eca6ed4c4581e97abbc344de4954e0b8c74c6d4e7f6781789bd1da843ba4d1719e3893b5a45fc146e0aa677de731cefc45ec863414bc0626c074#workspace:ui/icons"],\
           ["@ui/layout", "virtual:fa4b14909a2454b8e2cf01845c2ece79a8b49976c6a5b7adcc217781c5337260b8b4afd79b3b6a320a1ed360d82cafa798fce11c9f4af82cee44cd0834c0266b#workspace:ui/layout"],\
           ["@ui/link", "virtual:9770626a25c78de02794fc599207bb6b74fd8296b48491a71389e520380c3c0026e3b3e4f532c1c160b2359304486c4f7a2f572ac8e0e487812430860e8e4e08#workspace:ui/link"],\
           ["@ui/text", "virtual:b4bda316b0967eca050e56d7aa27a306bad01b8e3a3e0223ada0a720d9b0319bbdd00f2b70925fcf8e311981a8305c8b0d3de479fc6832fdb1bf6f603913c8cc#workspace:ui/text"],\

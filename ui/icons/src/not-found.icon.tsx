@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-export const Illustration = () => {
+export const NotFoundIcon = () => {
   return (
     <svg
       width='282'

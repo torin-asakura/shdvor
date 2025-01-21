@@ -4,13 +4,12 @@ import { FormattedMessage } from 'react-intl'
 import React                from 'react'
 
 import { Button }           from '@ui/button'
+import { NotFoundIcon }     from '@ui/icons'
 import { Column }           from '@ui/layout'
 import { Layout }           from '@ui/layout'
 import { Box }              from '@ui/layout'
 import { BaseLink }         from '@ui/link'
 import { Text }             from '@ui/text'
-
-import { Illustration }     from './assets/index.js'
 
 export const NotFoundFragment: FC = () => (
   <Box width='$fill' maxWidth='$g1440' marginTop={[128, 128, 152]} justifyContent='center'>
@@ -24,7 +23,7 @@ export const NotFoundFragment: FC = () => (
         <FormattedMessage id='error.whoops' />
       </Text>
       <Layout flexBasis={[24, 24, 32]} />
-      <Illustration />
+      <NotFoundIcon />
       <Text
         fontWeight='$medium'
         fontSize='$medium.reduced'

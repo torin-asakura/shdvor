@@ -3994,6 +3994,7 @@ __metadata:
     "@types/react": "npm:18.3.3"
     "@types/react-dom": "npm:18.3.0"
     "@ui/button": "workspace:*"
+    "@ui/icons": "workspace:*"
     "@ui/layout": "workspace:*"
     "@ui/link": "workspace:*"
     "@ui/text": "workspace:*"
