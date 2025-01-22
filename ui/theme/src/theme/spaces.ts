@@ -1,6 +1,7 @@
 export const spaces = {
   zero: '0',
   fill: '100%',
+  g100vh: '100vh',
   g8: '8px',
   g10: '10px',
   g12: '12px',

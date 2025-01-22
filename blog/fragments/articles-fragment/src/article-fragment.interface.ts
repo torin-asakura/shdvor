@@ -1,7 +1,8 @@
 import type { FragmentsDataType } from '@globals/data'
 import type { PostByType }        from '@globals/data'
+import type { NonNullableObject } from '@globals/data'
 
-export type RequiredPostByType = globals.NonNullableObject<PostByType>
+export type RequiredPostByType = NonNullableObject<PostByType>
 
 export interface ArticleProps {
   fragmentsData: FragmentsDataType

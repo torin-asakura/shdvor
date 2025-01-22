@@ -9,16 +9,26 @@ import { GET_CAR_BODIES }           from '@globals/data'
 import { GET_SERVICES }             from '@globals/data'
 import { getServerClient }          from '@globals/data/apollo'
 
+import { PostNotFoundError }        from '../errors/index.js'
+import { getBlogPost }              from '../getters/index.js'
+
 // @ts-expect-error notAssignable
 export const runPostPageServerQuerires: PostPageServerProps = async ({ params }) => {
   const client = getServerClient()
   const { uri } = params
 
-  await client.query({ query: GET_FRAGMENTS })
-  await client.query({ query: GET_CONTACTS })
-  await client.query({ query: GET_NAVIGATION })
-  await client.query({ query: GET_AVAILABLE_RADII })
-  await client.query({ query: GET_BLOG_POST, variables: { uri } })
-  await client.query({ query: GET_CAR_BODIES })
-  await client.query({ query: GET_SERVICES })
+  const foundPost = await getBlogPost(client, uri)
+  if (!foundPost) throw new PostNotFoundError()
+
+  const promises = [
+    client.query({ query: GET_FRAGMENTS }),
+    client.query({ query: GET_CONTACTS }),
+    client.query({ query: GET_NAVIGATION }),
+    client.query({ query: GET_AVAILABLE_RADII }),
+    client.query({ query: GET_BLOG_POST, variables: { uri } }),
+    client.query({ query: GET_CAR_BODIES }),
+    client.query({ query: GET_SERVICES }),
+  ]
+
+  await Promise.allSettled(promises)
 }

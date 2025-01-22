@@ -2836,6 +2836,7 @@ __metadata:
     "@fragments/navigation-fragment": "workspace:*"
     "@globals/config": "workspace:*"
     "@globals/data": "workspace:*"
+    "@shared/not-found-page": "workspace:*"
     "@types/react": "npm:18.3.3"
     "@types/react-dom": "npm:18.3.0"
     "@types/react-helmet": "npm:6.1.11"
@@ -3983,6 +3984,27 @@ __metadata:
     react: "*"
     react-dom: "*"
     styled-system: "*"
+  languageName: unknown
+  linkType: soft
+
+"@fragments/not-found-fragment@workspace:*, @fragments/not-found-fragment@workspace:fragments/not-found-fragment":
+  version: 0.0.0-use.local
+  resolution: "@fragments/not-found-fragment@workspace:fragments/not-found-fragment"
+  dependencies:
+    "@types/react": "npm:18.3.3"
+    "@types/react-dom": "npm:18.3.0"
+    "@ui/button": "workspace:*"
+    "@ui/icons": "workspace:*"
+    "@ui/layout": "workspace:*"
+    "@ui/link": "workspace:*"
+    "@ui/text": "workspace:*"
+    react: "npm:18.3.1"
+    react-dom: "npm:18.3.1"
+    react-intl: "npm:6.6.8"
+  peerDependencies:
+    react: "*"
+    react-dom: "*"
+    react-intl: "*"
   languageName: unknown
   linkType: soft
 
@@ -7276,6 +7298,33 @@ __metadata:
 "@shared/api-routes@workspace:*, @shared/api-routes@workspace:shared/api-routes":
   version: 0.0.0-use.local
   resolution: "@shared/api-routes@workspace:shared/api-routes"
+  languageName: unknown
+  linkType: soft
+
+"@shared/not-found-page@workspace:*, @shared/not-found-page@workspace:shared/pages/not-found-page":
+  version: 0.0.0-use.local
+  resolution: "@shared/not-found-page@workspace:shared/pages/not-found-page"
+  dependencies:
+    "@apollo/client": "npm:3.11.3"
+    "@emotion/react": "npm:11.13.0"
+    "@emotion/styled": "npm:11.13.0"
+    "@fragments/footer-fragment": "workspace:*"
+    "@fragments/navigation-fragment": "workspace:*"
+    "@fragments/not-found-fragment": "workspace:*"
+    "@globals/data": "workspace:*"
+    "@types/react": "npm:18.3.3"
+    "@types/react-dom": "npm:18.3.0"
+    "@types/styled-system": "npm:^5"
+    "@ui/layout": "workspace:*"
+    graphql: "npm:16.9.0"
+    react: "npm:18.3.1"
+    react-dom: "npm:18.3.1"
+  peerDependencies:
+    "@apollo/client": "*"
+    "@emotion/react": "*"
+    "@emotion/styled": "*"
+    react: "*"
+    react-dom: "*"
   languageName: unknown
   linkType: soft
 
