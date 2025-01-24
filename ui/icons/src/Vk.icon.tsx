@@ -22,7 +22,7 @@ export const VkIcon = memo(({ color, ...props }: IconProps) => {
       viewBox='0 0 22 13'
       className={clsx(className, otherProps?.className)}
       style={Object.assign({}, style, otherProps.style)}
-      {...props}
+      {...otherProps}
     >
       <path
         fill={vars.colors[color as keyof typeof vars.colors] || color || '#252C32'}
