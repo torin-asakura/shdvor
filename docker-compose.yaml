@@ -12,6 +12,9 @@ services:
 
   site:
     image: node:19
+    depends_on:
+      yarn:
+        condition: service_completed_successfully
     volumes:
       - ./:/workspace
       - yarn:/.yarn/berry
@@ -22,6 +25,9 @@ services:
 
   blog:
     image: node:19
+    depends_on:
+      yarn:
+        condition: service_completed_successfully
     volumes:
       - ./:/workspace
       - yarn:/.yarn/berry
@@ -32,6 +38,9 @@ services:
 
   prices:
     image: node:19
+    depends_on:
+      yarn:
+        condition: service_completed_successfully
     volumes:
       - ./:/workspace
       - yarn:/.yarn/berry

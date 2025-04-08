@@ -1,0 +1,16 @@
+{
+  "name": "Node.js",
+	"image": "mcr.microsoft.com/devcontainers/javascript-node:19",
+	"features": {
+    "ghcr.io/duduribeiro/devcontainer-features/neovim:1": {},
+    "ghcr.io/nikobockerman/devcontainer-features/yarn-persistent-cache:1": {}
+	},
+  "forwardPorts": [3000, 3001, 3002],
+  "portsAttributes": {
+    "3000": {
+      "label": "Site",
+      "onAutoForward": "notify"
+    }
+  },
+  "postCreateCommand": "yarn"
+}
