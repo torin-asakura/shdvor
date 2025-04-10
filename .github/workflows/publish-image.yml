@@ -16,9 +16,9 @@ jobs:
     uses: atls/shared/.github/workflows/pack-image.yaml@master
     permissions: write-all
     with:
-      registryURL: 'cr.yandex'
-      registryUser: 'json_key'
-      imageNamePrefix: 'shdvor-'
+      registryURL: cr.yandex
+      registryUser: json_key
+      imageNamePrefix: shdvor-
       nodeVersion: '22'
     secrets:
       registryKey: ${{ secrets.YCR_KEYFILE }}
