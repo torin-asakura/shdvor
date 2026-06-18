@@ -5,3 +5,6 @@ contact_links:
     about: О наших релизах
   - name: Telegram
     url: https://t.me/atls
+  - name: Telegram Challenges
+    url: https://t.me/atls_challenges
+    about: Канал с нашими челленджами
