@@ -2,7 +2,6 @@ name: Management
 description: Менеджерское болото
 title: '[Management] '
 type: 'Management'
-projects: ['atls/11']
 assignees:
   - TorinAsakura
 body:
