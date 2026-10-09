@@ -1,9 +1,7 @@
 name: Release
 
 on:
-  pull_request:
-    types:
-      - closed
+  push:
     branches:
       - master
     paths-ignore:
@@ -11,7 +9,6 @@ on:
 
 jobs:
   run:
-    if: github.event.pull_request.merged == true
     name: Release
     uses: atls/shared/.github/workflows/pack-image.yaml@master
     permissions: write-all
@@ -19,7 +16,6 @@ jobs:
       registryURL: cr.yandex
       registryUser: json_key
       imageNamePrefix: shdvor-
-      nodeVersion: '22'
     secrets:
       registryKey: ${{ secrets.YCR_KEYFILE }}
       project: ${{ secrets.YCR_PROJECT_ID }}
