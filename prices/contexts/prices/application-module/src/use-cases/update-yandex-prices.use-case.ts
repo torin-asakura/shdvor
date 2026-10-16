@@ -4,7 +4,6 @@ import { PutObjectToS3Service }      from '@prices/storage-adapter-module'
 
 import { GetQueryDataService }       from '../services/index.js'
 import { GetYandexPricesXmlService } from '../services/index.js'
-import { getDateString }             from '../getters/index.js'
 
 @Injectable()
 export class UpdateYandexPricesUseCase {
@@ -18,9 +17,6 @@ export class UpdateYandexPricesUseCase {
     const queryData = await this.getQueryDataService.process()
     const yandexXml = await this.getYandexPricesXmlService.process(queryData)
 
-    const dateString = getDateString()
-
-    await this.putObjectToS3Service.process(`prices-${dateString}.xml`, yandexXml)
     await this.putObjectToS3Service.process(`prices-latest.xml`, yandexXml)
   }
 }

@@ -7,6 +7,7 @@ export class S3AdapterService extends S3Client {
     super({
       endpoint: process.env.FILES_STORAGE_HOST,
       region: process.env.FILES_STORAGE_REGION,
+      forcePathStyle: process.env.FILES_STORAGE_FORCE_PATH_STYLE === 'true',
       credentials: {
         accessKeyId: process.env.YC_SA_KEY_ID || '',
         secretAccessKey: process.env.YC_SA_SECRET_KEY || '',
