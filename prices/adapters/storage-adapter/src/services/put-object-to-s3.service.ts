@@ -15,6 +15,7 @@ export class PutObjectToS3Service {
           Bucket: process.env.BUCKET_NAME || '',
           Key: key,
           Body: xml,
+          ContentType: 'text/xml',
         })
       )
     } catch (e) {
