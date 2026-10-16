@@ -16,6 +16,7 @@ export class PutObjectToS3Service {
           Key: key,
           Body: xml,
           ContentType: 'text/xml',
+          ACL: process.env.FILES_STORAGE_PUBLIC_READ === 'true' ? 'public-read' : undefined,
         })
       )
     } catch (e) {
