@@ -1,6 +1,7 @@
 name: Release
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - master
@@ -10,12 +11,16 @@ on:
 jobs:
   run:
     name: Release
+    if: github.ref == 'refs/heads/master'
     uses: atls/shared/.github/workflows/pack-image.yaml@master
-    permissions: write-all
+    permissions:
+      contents: read
+      packages: write
     with:
-      registryURL: cr.yandex
-      registryUser: json_key
+      registryURL: ghcr.io
+      registryUser: ${{ github.repository_owner }}
+      project: ${{ github.repository_owner }}
       imageNamePrefix: shdvor-
+      include: ${{ github.event_name == 'workflow_dispatch' && '@site/app,@blog/app,@prices/service-entrypoint' || '' }}
     secrets:
-      registryKey: ${{ secrets.YCR_KEYFILE }}
-      project: ${{ secrets.YCR_PROJECT_ID }}
+      registryKey: ${{ secrets.GITHUB_TOKEN }}
