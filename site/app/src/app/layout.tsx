@@ -15,4 +15,6 @@ export { generateMetadata } from '@fragments/root-layout-fragment'
 
 export { revalidate } from '@fragments/root-layout-fragment'
 
+export const dynamic = 'force-dynamic'
+
 export default RootLayout

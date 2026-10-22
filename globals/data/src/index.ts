@@ -1,3 +1,5 @@
+/// <reference path="../../interfaces/Global.d.ts" />
+
 export * from './__generated__/index.js'
 export * from './__generated__/graphql.js'
 export * from './queries/index.js'
