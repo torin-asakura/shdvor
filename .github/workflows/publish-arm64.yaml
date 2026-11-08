@@ -1,0 +1,71 @@
+name: Release ARM64
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/publish-arm64.yaml'
+      - '.yarn/**'
+      - '.yarnrc.yml'
+      - 'package.json'
+      - 'yarn.lock'
+      - 'site/**'
+      - 'blog/**'
+      - 'prices/**'
+      - 'globals/**'
+      - 'shared/**'
+      - 'fragments/**'
+      - 'store/**'
+      - 'ui/**'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-arm64-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Release ${{ matrix.workspace }} ARM64
+    runs-on: ubuntu-24.04-arm
+    permissions:
+      contents: read
+      packages: write
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        include:
+          - workspace: '@site/app'
+            image: shdvor-site-app
+          - workspace: '@blog/app'
+            image: shdvor-blog-app
+          - workspace: '@prices/service-entrypoint'
+            image: shdvor-prices-service-entrypoint
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.1.0
+        with:
+          node-version: '24'
+      - name: Login to GHCR
+        uses: docker/login-action@v4.6.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Setup Pack
+        uses: buildpacks/github-actions/setup-pack@v6.1.1
+        with:
+          pack-version: 0.40.9
+      - name: Build and publish ARM64 workspace
+        uses: atls/buildpacks/buildpacks/publish-image@buildpack-root-1.2.0
+        with:
+          image: ghcr.io/${{ github.repository_owner }}/${{ matrix.image }}:${{ github.sha }}-arm64
+          latestImage: ghcr.io/${{ github.repository_owner }}/${{ matrix.image }}:arm64
+          workspace: ${{ matrix.workspace }}
+          builder: ghcr.io/atls/builder-base:24
+          buildpack: ghcr.io/atls/buildpack-yarn-workspace:24
+        env:
+          SKILLS_NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
