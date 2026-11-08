@@ -13,6 +13,14 @@
 заменяет проверку страниц с реальным содержимым. Ошибки CMS не подменяются
 пустыми или вымышленными данными.
 
+## Публикация ARM64
+
+Workflow `Release ARM64` собирает сайт, блог и `prices` штатным Pack на
+`ubuntu-24.04-arm` и публикует их в GHCR с тегами `<commit-sha>-arm64` и
+`arm64`. Он запускается при изменении исходников в master либо вручную.
+Обычная AMD64-публикация и её теги сохраняются. Для размещения следует
+проверить архитектуру опубликованного образа и закрепить его digest.
+
 [//]: # 'VERSIONS'
 
 <img src="https://img.shields.io/static/v1?style=for-the-badge&label=%40atls%2Fcode-service&message=0.0.16&labelColor=ECEEF5&color=D7DCEB"> <img src="https://img.shields.io/static/v1?style=for-the-badge&label=%40atls-ui-generators%2Fbutton&message=0.0.10&labelColor=097CEB&color=0B6DCC"> <img src="https://img.shields.io/static/v1?style=for-the-badge&label=%40atls-ui-generators%2Ficons&message=0.0.2&labelColor=097CEB&color=0B6DCC">
