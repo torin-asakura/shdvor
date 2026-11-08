@@ -1,11 +1,13 @@
 /* eslint-disable */
-import type { FetchAqsiDataHelperReturnType } from './fetch-data.interfaces.js'
+import type { FetchAqsiDataHelperReturnType }   from './fetch-data.interfaces.js'
 
-import { AQSI_DATA_FETCH_REVALIDATE_SECONDS } from './fetch-data.constants.js'
+import { AQSI_DATA_FETCH_REVALIDATE_SECONDS }   from './fetch-data.constants.js'
+import { AQSI_DATA_FETCH_TIMEOUT_MILLISECONDS } from './fetch-data.constants.js'
 
 const fetchAqsiDataHelper = async (url: string): Promise<Response> => {
   const response = await fetch(url, {
     method: 'GET',
+    signal: AbortSignal.timeout(AQSI_DATA_FETCH_TIMEOUT_MILLISECONDS),
     headers: {
       'Content-Type': 'application/json; charset=utf-8',
       'x-client-key': `Application ${process.env.API_KEY!}`,
